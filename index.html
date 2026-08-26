@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fdfbfb">
+  <meta id="pageDescription" name="description" content="合成小宝宝">
+  <title>合成小宝宝</title>
+  <link rel="icon" href="images/01.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    var _hmt=_hmt || [];
+    (function() {
+      var hm=document.createElement("script");
+      hm.src="https://hm.baidu.com/hm.js?3cb9091189f56f2a704a01b5a9fbddb8";
+      var s=document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <h1 id="gameTitle">合成小宝宝</h1>
+        <p>左右拖动·松手落下</p>
+      </div>
+
+      <div class="metric metric-score">
+        <span>得分</span>
+        <strong id="score">0</strong>
+      </div>
+
+      <div class="metric">
+        <span>最高</span>
+        <strong id="bestScore">0</strong>
+      </div>
+
+      <div class="header-actions">
+        <button
+          class="icon-button"
+          id="soundButton"
+          type="button"
+          tabindex="-1"
+          aria-label="关闭声音"
+          aria-pressed="true"
+        >
+          <span class="sound-icon" id="soundIcon" aria-hidden="true"></span>
+        </button>
+        <button class="small-button restart-button" id="restartButton" type="button" tabindex="-1" disabled>重开</button>
+      </div>
+    </header>
+
+    <div class="board">
+      <canvas
+        id="gameCanvas"
+        width="1024"
+        height="1587"
+      ></canvas>
+
+      <div
+        class="overlay baby-overlay"
+        id="gameOverOverlay"
+        role="dialog"
+        aria-modal="true"
+        hidden
+      >
+        <div class="baby-game-over">
+          <img class="easter-egg" src="images/egg.jpg" alt="彩蛋">
+          <p class="baby-taunt">你行不行啊</p>
+          <div class="baby-stats">
+            <div><span>此次得分</span><strong id="finalScore">0</strong></div>
+            <div><span>最高纪录</span><strong id="bestScoreInOverlay">0</strong></div>
+          </div>
+          <button class="primary-button" id="againButton" type="button" tabindex="-1">再来一次</button>
+        </div>
+      </div>
+
+      <div
+        class="overlay"
+        id="restartConfirmOverlay"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="restartConfirmTitle"
+        hidden
+      >
+        <div class="overlay-card confirm-card">
+          <h2 id="restartConfirmTitle">重新开始？</h2>
+          <p class="confirm-copy">当前进度将会丢失。</p>
+          <div class="confirm-actions">
+            <button class="small-button" id="restartCancelButton" type="button" tabindex="-1">取消</button>
+            <button class="small-button confirm-button" id="restartConfirmButton" type="button" tabindex="-1">重新开始</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="game-config.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
